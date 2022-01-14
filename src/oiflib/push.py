@@ -31,6 +31,7 @@ To do this the :func:`publish` function does the following:
     indicator would have a TIC code of 3-1-2.
 
 """
+from logging import INFO, basicConfig, info
 from os import environ
 from typing import Optional, Tuple, Union
 
@@ -410,6 +411,10 @@ def publish(
             generated using the `indicator_code`, otherwise the provided message will
             be used.
     """
+    basicConfig(
+        level=INFO,
+    )
+
     if not root:
         root = environ["HOME"]
 
@@ -419,9 +424,13 @@ def publish(
         remote=remote,
     )
 
+    info("Reset local branch.")
+
     _data_file_name: str = _set_data_file_name(
         indicator_code=indicator_code,
     )
+
+    info("Set file name.")
 
     _write_to_csv(
         df=df,
@@ -431,12 +440,16 @@ def publish(
         data_file_name=_data_file_name,
     )
 
+    info("Wrote CSV.")
+
     _add(
         root=root,
         repo=repo,
         data_folder=data_folder,
         data_file_name=_data_file_name,
     )
+
+    info("Added CSV to git index.")
 
     _commit(
         root=root,
@@ -445,9 +458,13 @@ def publish(
         data_commit_message=data_commit_message,
     )
 
+    info("Committed CSV to local repository.")
+
     _push(
         root=root,
         repo=repo,
         remote=remote,
         branches=branches,
     )
+
+    info("Pushed CSV to remote repository.")
