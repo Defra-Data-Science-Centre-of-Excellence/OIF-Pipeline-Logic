@@ -1,0 +1,193 @@
+NCFormat,IPCC,OIF_category
+Agriculture,1A4ci_Agriculture/Forestry/Fishing:Stationary,Agriculture
+Agriculture,1A4cii_Agriculture/Forestry/Fishing:Off-road,Agriculture
+Agriculture,2D1_Lubricant_Use,Agriculture
+Agriculture,3A1a Enteric Fermentation - dairy cows,Agriculture
+Agriculture,3A1b Enteric Fermentation - other cattle,Agriculture
+Agriculture,3A2 Enteric Fermentation - sheep,Agriculture
+Agriculture,3A3 Enteric Fermentation - swine,Agriculture
+Agriculture,3A4 Enteric Fermentation - other livestock,Agriculture
+Agriculture,3B11a Manure management - CH4 - dairy cows,Agriculture
+Agriculture,3B11b Manure management - CH4 - other cattle,Agriculture
+Agriculture,3B12 Manure management - CH4 - sheep,Agriculture
+Agriculture,3B13 Manure management - CH4 - swine,Agriculture
+Agriculture,3B14 Manure management - CH4 - other livestock,Agriculture
+Agriculture,3B21a Manure management - N2O and NMVOC - dairy cattle,Agriculture
+Agriculture,3B21b Manure management - N2O and NMVOC - other cattle,Agriculture
+Agriculture,3B22 Manure management - N2O and NMVOC - sheep,Agriculture
+Agriculture,3B23 Manure management - N2O and NMVOC -swine ,Agriculture
+Agriculture,3B24 Manure management - N2O and NMVOC - other livestock,Agriculture
+Agriculture,3B25 Manure management - N2O and NMVOC - indirect N2O emissions,Agriculture
+Agriculture,3D11 Inorganic N Fertilizers,Agriculture
+Agriculture,3D12a Animal manure applied to soils,Agriculture
+Agriculture,3D12b Sewage sludge applied to soils,Agriculture
+Agriculture,3D13 Urine and Dung deposited by grazing animals,Agriculture
+Agriculture,3D14 Crop Residues,Agriculture
+Agriculture,3D15 Mineralisation/immobilisation associated with loss/gain of soil organic matter,Agriculture
+Agriculture,3D16 Cultivation of Organic soils,Agriculture
+Agriculture,3D21 Atmospheric Deposition,Agriculture
+Agriculture,3D22 Nitrogen Leaching and Run-off,Agriculture
+Agriculture,3F11_Field_burning,Agriculture
+Agriculture,3F12_Field_burning,Agriculture
+Agriculture,3F14_Field_burning,Agriculture
+Agriculture,3F5_Field_burning,Agriculture
+Agriculture,3G1_Liming - limestone,Agriculture
+Agriculture,3G2_Liming - dolomite,Agriculture
+Agriculture,3H Urea Application,Agriculture
+Agriculture Total,,
+Business,1A2a_Iron_and_steel,
+Business,1A2b_Non-Ferrous_Metals,
+Business,1A2c_Chemicals,
+Business,1A2d_Pulp_Paper_Print,
+Business,1A2e_food_processing_beverages_and_tobacco,
+Business,1A2f_Non-metallic_minerals,
+Business,1A2gvii_Off-road_vehicles_and_other_machinery,
+Business,1A2gviii_Other_manufacturing_industries_and_construction,
+Business,1A4ai_Commercial/Institutional,
+Business,2B1_Chemical_Industry:Ammonia_production,
+Business,2B8a_Methanol_production,
+Business,2B8g_Petrochemical_and_carbon_black_production:Other,
+Business,2D1_Lubricant_Use,
+Business,2D4_Other_NEU,
+Business,2E1_Integrated_circuit_or_semiconductor,Fluorinated gases
+Business,2F1a_Commercial_refrigeration,Fluorinated gases
+Business,2F1b_Domestic_refrigeration,Fluorinated gases
+Business,2F1c_Industrial_refrigeration,Fluorinated gases
+Business,2F1d_Transport_refrigeration,Fluorinated gases
+Business,2F1e_Mobile_air_conditioning,Fluorinated gases
+Business,2F1f_Stationary_air_conditioning,Fluorinated gases
+Business,2F2a_Closed_foam_blowing_agents,Fluorinated gases
+Business,2F2b_Open_foam_blowing_agents,Fluorinated gases
+Business,2F3_Fire_Protection,Fluorinated gases
+Business,2F5_Solvents,Fluorinated gases
+Business,2F6b_Other_Applications:Contained-Refrigerant_containers,Fluorinated gases
+Business,2F6b_Other_Applications:Contained-Refrigerant_Processing,Fluorinated gases
+Business,2G1_Electrical_equipment,Fluorinated gases
+Business,2G2_Military_applications,Fluorinated gases
+Business,2G2_Particle_accelerators,Fluorinated gases
+Business,2G2e_Electronics_and_shoes,Fluorinated gases
+Business,2G2e_Tracer_gas,Fluorinated gases
+Business,2G3a_Medical aplications,
+Business,5C2.2b_Non-biogenic:Other,Waste
+Business Total,,
+Energy Supply,1A1ai_Public_Electricity&Heat_Production,
+Energy Supply,1A1b_Petroleum_Refining,
+Energy Supply,1A1ci_Manufacture_of_solid_fuels,
+Energy Supply,1A1cii_Oil_and_gas_extraction,
+Energy Supply,1A1ciii_Other_energy_industries,
+Energy Supply,1B1ai_Underground_mines:Abandoned,
+Energy Supply,1B1ai_Underground_mines:Mining_activities,
+Energy Supply,1B1ai_Underground_mines:Post-mining_activities,
+Energy Supply,1B1aii_Surface_mines:Mining_activities,
+Energy Supply,1B1b_Solid_Fuel_Transformation,
+Energy Supply,1B2a1_Oil_exploration,
+Energy Supply,1B2a2_Oil_Production,
+Energy Supply,1B2a3_Oil_transport,
+Energy Supply,1B2a4_Oil_refining/storage,
+Energy Supply,1B2b1_Gas_exploration,
+Energy Supply,1B2b3_Gas_processing,
+Energy Supply,1B2b4_Gas_transmission_and_storage,
+Energy Supply,1B2b5_Gas_distribution,
+Energy Supply,1B2c_Flaring_Gas,
+Energy Supply,1B2c_Flaring_Oil,
+Energy Supply,1B2c_Venting_Gas,
+Energy Supply,1B2c_Venting_Oil,
+Energy Supply,2A4d_Other_process_uses_of_carbonates:other,
+Energy Supply Total,,
+Public,1A4ai_Commercial/Institutional,
+Public Total,,
+Residential,1A4bi_Residential_stationary,
+Residential,1A4bii_Residential:Off-road,
+Residential,2D2 Non-energy_products_from_fuels_and_solvent_use:Paraffin_wax_use,
+Residential,2F4a_Metered_dose_inhalers,Fluorinated gases
+Residential,2F4b_Aerosols:Other,Fluorinated gases
+Residential,2G3b_N2O_from_product_uses:_Other,
+Residential,5B1a_composting_municipal_solid_waste,Waste
+Residential,5C2.2b_Non-biogenic:Other,Waste
+Residential,5C2.2b_Non-biogenic:Other_Accidental fires (vehicles),Waste
+Residential Total,,
+Transport,1A3a_Domestic_aviation,
+Transport,1A3bi_Cars,
+Transport,1A3bii_Light_duty_trucks,
+Transport,1A3biii_Heavy_duty_trucks_and_buses,
+Transport,1A3biv_Motorcycles,
+Transport,1A3bv_Other_road_transport,
+Transport,1A3c_Railways,
+Transport,1A3d_Domestic_navigation,
+Transport,1A3eii_Other_Transportation,
+Transport,1A4ai_Commercial/Institutional,
+Transport,1A4ciii_Fishing,
+Transport,1A5b_Other:Mobile,
+Transport,2D1_Lubricant_Use,
+Transport,2D3_Non-energy_products_from_fuels_and_solvent_use:Other,
+Transport Total,,
+Waste Management,5A1a_Managed_Waste_Disposal_sites_anaerobic,Waste
+Waste Management,5B1a_composting_municipal_solid_waste,Waste
+Waste Management,5B2a_Anaerobic_digestion_municipal_solid_waste,Waste
+Waste Management,5C1.1b_Biogenic:Sewage_sludge,Waste
+Waste Management,5C1.2a_Non-biogenic:municipal_solid_waste,Waste
+Waste Management,5C1.2b_Non-biogenic:Clinical_waste,Waste
+Waste Management,5C1.2b_Non-biogenic:Other_Chemical_waste,Waste
+Waste Management,5D1_Domestic_wastewater_treatment,Waste
+Waste Management,5D2_Industrial_wastewater_treatment,Waste
+Waste Management Total,,
+Industrial processes,2A1_Cement_Production,
+Industrial processes,2A2_Lime_Production,
+Industrial processes,2A3_Glass_production,
+Industrial processes,2A4a_Other_process_uses_of_carbonates:ceramics,
+Industrial processes,2A4b_Other_uses_of_Soda_Ash,
+Industrial processes,2B1_Ammonia_Production,
+Industrial processes,2B10_Chemical_Industry:Other,
+Industrial processes,2B2_Nitric_Acid_Production,
+Industrial processes,2B3_Adipic_Acid_Production,
+Industrial processes,2B6_Titanium_dioxide_production,
+Industrial processes,2B7_Soda_Ash_Production,
+Industrial processes,2B8a_Methanol_production,
+Industrial processes,2B8b_Ethylene_Production,
+Industrial processes,2B8c_Ethylene_Dichloride_and_Vinyl_Chloride_Monomer,
+Industrial processes,2B8d_Ethylene_Oxide,
+Industrial processes,2B8e_Acrylonitrile,
+Industrial processes,2B8f_Carbon_black_production,
+Industrial processes,2B9a1_Fluorchemical_production:By-product_emissions,Fluorinated gases
+Industrial processes,2B9b3_Fluorchemical_production:Fugitive_emissions,Fluorinated gases
+Industrial processes,2C1a_Steel,
+Industrial processes,2C1b_Pig_iron,
+Industrial processes,2C1d_Sinter,
+Industrial processes,2C3_Aluminium_Production,Fluorinated gases
+Industrial processes,2C4_Magnesium_production,Fluorinated gases
+Industrial processes,2C6_Zinc_Production,
+Industrial processes,2G3b_N2O_from_product_uses:_Other,
+Industrial processes,2G4_Other_product_manufacture_and_use,
+Industrial processes,2G4_Other_product_manufacture_and_use-baking_soda,
+Industrial processes Total,,
+"Land use, land use change and forestry",4_Indirect_N2O_Emissions,Land use & land use change
+"Land use, land use change and forestry",4A_Forest Land_Emissions_from_Drainage,Forestry sink
+"Land use, land use change and forestry",4A1_ Forest Land remaining Forest Land,Forestry sink
+"Land use, land use change and forestry",4A2_1_Cropland converted to Forest Land,Forestry sink
+"Land use, land use change and forestry",4A2_2_Grassland converted to Forest Land,Forestry sink
+"Land use, land use change and forestry",4A2_4_Settlements converted to Forest Land,Land use & land use change
+"Land use, land use change and forestry",4A2_5_Other land converted to Forest Land,Forestry sink
+"Land use, land use change and forestry",4A2_Cropland converted to Forest Land,Forestry sink
+"Land use, land use change and forestry",4A2_Grassland converted to Forest Land,Forestry sink
+"Land use, land use change and forestry",4A2_Land converted to Forest Land_Emissions_from_Fertilisation,Forestry sink
+"Land use, land use change and forestry",4A2_Other Land converted to Forest Land,Forestry sink
+"Land use, land use change and forestry",4A2_Settlements converted to Forest Land,Forestry sink
+"Land use, land use change and forestry",4B1_Cropland Remaining Cropland,Land use & land use change
+"Land use, land use change and forestry",4B1_Cropland_Remaining_Cropland,Land use & land use change
+"Land use, land use change and forestry",4B2_1_Forest Land converted to Cropland,Land use & land use change
+"Land use, land use change and forestry",4B2_2_Grassland converted to Cropland,Land use & land use change
+"Land use, land use change and forestry",4B2_4_Settlements converted to Cropland,Land use & land use change
+"Land use, land use change and forestry",4C1_Grassland Remaining Grassland,Land use & land use change
+"Land use, land use change and forestry",4C2_1_Forest Land converted to Grassland,Land use & land use change
+"Land use, land use change and forestry",4C2_2_Cropland converted to Grassland,Land use & land use change
+"Land use, land use change and forestry",4C2_3_Wetlands converted to Grassland,Land use & land use change
+"Land use, land use change and forestry",4C2_4_Settlements converted to Grassland,Land use & land use change
+"Land use, land use change and forestry",4D1_Wetlands remaining wetlands,Land use & land use change
+"Land use, land use change and forestry",4D2_Land converted to wetlands,Land use & land use change
+"Land use, land use change and forestry",4E1_Settlements remaining settlements,Land use & land use change
+"Land use, land use change and forestry",4E2_1_Forest Land converted to Settlements,Land use & land use change
+"Land use, land use change and forestry",4E2_2_Cropland converted to Settlements,Land use & land use change
+"Land use, land use change and forestry",4E2_3_Grassland converted to Settlements,Land use & land use change
+"Land use, land use change and forestry",4G_Harvested Wood Products,Forestry sink
+"Land use, land use change and forestry Total",,
+Grand Total,,
