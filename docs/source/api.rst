@@ -6,6 +6,13 @@ General
 
 Functions used across the project.
 
+Upload Raw
+^^^^^^^^^^
+
+.. automodule:: oiflib.upload_raw
+   :members:
+   :private-members:
+
 Extract
 ^^^^^^^
 
