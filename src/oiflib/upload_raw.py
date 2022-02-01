@@ -25,7 +25,7 @@ def upload_raw(
     >>> upload_raw(
         indicator_code="A1",
         url="https://url/for/raw/data.xlsx",
-        year="2022,
+        year="2022",
     )
 
     Args:
