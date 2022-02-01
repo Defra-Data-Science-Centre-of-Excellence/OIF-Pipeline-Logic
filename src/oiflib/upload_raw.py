@@ -19,6 +19,9 @@ def upload_raw(
 
     Example:
 
+    Get file from `https://url/for/raw/data.xlsx` and upload it to
+    `S3://s3-ranch-029/2022_update/raw/A1/data.xlsx`.
+
     >>> upload_raw(
         indicator_code="A1",
         url="https://url/for/raw/data.xlsx",
