@@ -5,7 +5,7 @@ import nox
 from nox_poetry import Session, session
 
 package = "oiflib"
-python_versions = ["3.10", "3.9", "3.8"]
+python_versions = "3.10"
 nox.options.sessions = "isort", "lint", "safety", "mypy", "tests"
 locations = "src", "tests", "noxfile.py", "docs/source/conf.py"
 
