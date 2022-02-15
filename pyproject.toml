@@ -9,7 +9,7 @@ repository = "https://github.com/Defra-Data-Science-Centre-of-Excellence/oiflib"
 authors = ["Ed Fawcett-Taylor <ed.fawcett-taylor@defra.gov.uk>"]
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "^3.8"
 pandas = "^1.2.0"
 openpyxl = "^3.0.6"
 pandera = "^0.6.1"
