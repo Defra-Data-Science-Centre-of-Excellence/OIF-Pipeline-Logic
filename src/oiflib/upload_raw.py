@@ -8,7 +8,7 @@ from requests import get
 
 def upload_raw(
     indicator_code: str,
-    url: str,
+    path: str,
     year: str,
     bucket_name: str = "s3-ranch-029",
     acl: str = "bucket-owner-full-control",
@@ -17,20 +17,30 @@ def upload_raw(
 ) -> None:
     """Upload raw data to S3.
 
-    Example:
+    Examples:
 
-    Get file from `https://url/for/raw/data.xlsx` and upload it to
-    `S3://s3-ranch-029/2022_update/raw/A1/data.xlsx`.
+        Get file from `https://url/for/raw/data.xlsx` and upload it to
+        `S3://s3-ranch-029/2022_update/raw/A1/data.xlsx`.
 
-    >>> upload_raw(
-        indicator_code="A1",
-        url="https://url/for/raw/data.xlsx",
-        year="2022",
-    )
+        >>> upload_raw(
+            indicator_code="A1",
+            path="https://url/for/raw/data.xlsx",
+            year="2022",
+        )
+
+        Upload a local file to
+        `S3://s3-ranch-029/2022_update/raw/A1/data.xlsx`.
+
+        >>> upload_raw(
+            indicator_code="A1",
+            path="/path/to/data.xlsx",
+            year="2022",
+        )
 
     Args:
         indicator_code (str): Indicator code as a string, e.g. "A1".
-        url (str): URL for the data you want to upload.
+        path (str): path to the data you want to upload. This can be a URL or a
+            local filepath.
         year (str): The publication date of the release that this data will
             feed into, e.g. "2022".
         bucket_name (str): The name of the S3 bucket that you want to upload
@@ -40,7 +50,7 @@ def upload_raw(
         key (str, optional): The object key identifier, the filepath-like string
             used to identify the object. If set to None, this will be constructed
             from other arguments, e.g.
-            "{year}_update/raw/{indicator_code}/{basename(url)}". Defaults to
+            "{year}_update/raw/{indicator_code}/{basename(path)}". Defaults to
             None.
         headers (Dict[str, str]], optional): HTTP headers to be passed to the
             `Requests`_ library's get function. If left as None, a `user-agent`_ header
@@ -54,29 +64,37 @@ def upload_raw(
     .. _Requests: https://docs.python-requests.org/en/latest/
     .. _user-agent: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent
     .. _Custom Headers: https://docs.python-requests.org/en/latest/user/quickstart/#custom-headers
-    """  # noqa: B950
+    """  # noqa: B950, D412
     s3 = resource("s3")
     bucket = s3.Bucket(bucket_name)
 
-    _headers = (
-        headers
-        if headers
-        else {
-            "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36 Edg/95.0.1020.44"  # noqa: B950
-        }
-    )
+    _key = key if key else f"{year}_update/raw/{indicator_code}/{basename(path)}"
 
-    response = get(
-        url,
-        headers=_headers,
-    )
+    if path.startswith(("https://", "http://")):
 
-    response.raise_for_status()
+        _headers = (
+            headers
+            if headers
+            else {
+                "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36 Edg/95.0.1020.44"  # noqa: B950
+            }
+        )
 
-    _key = key if key else f"{year}_update/raw/{indicator_code}/{basename(url)}"
+        response = get(
+            path,
+            headers=_headers,
+        )
 
-    return bucket.put_object(
-        ACL=acl,
-        Body=response.content,
-        Key=_key,
-    )
+        response.raise_for_status()
+
+        return bucket.put_object(
+            ACL=acl,
+            Body=response.content,
+            Key=_key,
+        )
+    else:
+        return bucket.upload_file(
+            Filename=path,
+            Key=_key,
+            ExtraArgs={"ACL": acl},
+        )
