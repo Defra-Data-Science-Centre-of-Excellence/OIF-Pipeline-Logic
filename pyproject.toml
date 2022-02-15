@@ -9,7 +9,7 @@ repository = "https://github.com/Defra-Data-Science-Centre-of-Excellence/oiflib"
 authors = ["Ed Fawcett-Taylor <ed.fawcett-taylor@defra.gov.uk>"]
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.10"
 pandas = "^1.2.0"
 openpyxl = "^3.0.6"
 pandera = "^0.6.1"
@@ -21,8 +21,6 @@ frozendict = "^1.2"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
-black = "^20.8b1"
-mypy = "^0.790"
 coverage = {extras = ["toml"], version = "^5.4"}
 pytest-cov = "^2.10.1"
 flake8 = "^3.8.4"
@@ -47,6 +45,8 @@ moto = {extras = ["s3"], version = "^2.0.1"}
 codecov = "^2.1.11"
 nox = "^2022.1.7"
 nox-poetry = "^0.9.0"
+black = "^22.1.0"
+mypy = "^0.931"
 
 [tool.coverage.paths]
 source = ["src", "*/site-packages"]
