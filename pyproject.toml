@@ -9,7 +9,7 @@ repository = "https://github.com/Defra-Data-Science-Centre-of-Excellence/oiflib"
 authors = ["Ed Fawcett-Taylor <ed.fawcett-taylor@defra.gov.uk>"]
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.10"
 pandas = "^1.2.0"
 openpyxl = "^3.0.6"
 pandera = "^0.6.1"
@@ -37,7 +37,6 @@ Sphinx = "^3.4.2"
 isort = "^5.7.0"
 pre-commit = "^2.9.3"
 jupyter = "^1.0.0"
-nox = "^2020.12.31"
 safety = "^1.10.3"
 hypothesis = "^6.1.1"
 sphinx-rtd-theme = "^0.5.1"
@@ -46,6 +45,7 @@ sphinx-autobuild = "^2020.9.1"
 pytest-cases = "^3.2.1"
 moto = {extras = ["s3"], version = "^2.0.1"}
 codecov = "^2.1.11"
+nox = "^2022.1.7"
 
 [tool.coverage.paths]
 source = ["src", "*/site-packages"]
