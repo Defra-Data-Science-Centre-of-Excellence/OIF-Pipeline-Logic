@@ -1,8 +1,15 @@
 Usage
 =====
 
-The package provides generic Extract_, Validate_, Format_, and Publish_ functions and theme and indicator
+The package provides generic `Upload Raw`_, Extract_, Validate_, Format_, and Publish_ functions and theme and indicator
 specific Transform_ and Enrich_ functions.
+
+Upload Raw
+----------
+
+.. automodule:: oiflib.upload_raw
+    :noindex:
+
 
 Extract
 -------
