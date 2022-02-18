@@ -17,30 +17,44 @@ def upload_raw(
     bucket_name: str = "s3-ranch-029",
     acl: str = "bucket-owner-full-control",
     filename: Optional[str] = None,
-    key: Optional[str] = None,
+    key_name: Optional[str] = None,
     headers: Optional[Dict[str, str]] = None,
-) -> None:
+) -> str:
     """Upload raw data to S3.
 
     Examples:
 
         Get file from `https://url/for/raw/data.xlsx` and upload it to
-        `S3://s3-ranch-029/2022_update/raw/A1/data.xlsx`.
+        `s3://s3-ranch-029/2022_update/raw/A1/data.xlsx`.
 
         >>> upload_raw(
+            "https://url/for/raw/data.xlsx",
             indicator_code="A1",
-            df_or_path="https://url/for/raw/data.xlsx",
             year="2022",
         )
+        # s3://s3-ranch-029/2022_update/raw/A1/data.xlsx
 
         Upload a local file to
-        `S3://s3-ranch-029/2022_update/raw/A1/data.xlsx`.
+        `s3://s3-ranch-029/2022_update/raw/A1/data.xlsx`.
 
         >>> upload_raw(
+            "/path/to/data.xlsx",
             indicator_code="A1",
-            df_or_path="/path/to/data.xlsx",
             year="2022",
         )
+        # s3://s3-ranch-029/2022_update/raw/A1/data.xlsx
+
+        Create an in-memory DataFrame and upload it to
+        `s3://s3-ranch-029/2022_update/raw/A1/data.xlsx`.
+
+        >>> from pandas import DataFrame
+        >>> df = DataFrame({'col1': [1, 2], 'col2': [3, 4]})
+        >>> upload_raw(
+            df,
+            indicator_code="A1",
+            year="2022",
+        )
+        # s3://s3-ranch-029/2022_update/raw/A1/data.xlsx
 
     Args:
         df_or_path (Union[DataFrame, str]): An in-memory DataFrame or the path
@@ -56,15 +70,18 @@ def upload_raw(
             is required if you're uploading an in-memory DataFrame but can also be
             used if you want to save a file you're uploading from a local path or
             a url as something different. Defaults to None.
-        key (str, optional): The object key identifier, the filepath-like string
+        key_name (str, optional): The object key identifier, the filepath-like string
             used to identify the object. If set to None, this will be constructed
             from other arguments, e.g.
-            "{year}_update/raw/{indicator_code}/{filename)}". Defaults to
+            f"{year}_update/raw/{indicator_code}/{filename)}". Defaults to
             None.
         headers (Dict[str, str]], optional): HTTP headers to be passed to the
             `Requests`_ library's get function. If left as None, a `user-agent`_ header
             will be added. For more information see the `Custom Headers`_ section
             of Requests' documentation. Defaults to None.
+
+    Returns:
+        str: The path to the object in `S3 format`, e.g. f"S3://{bucket_name}/{key_name}".
 
     Raises:
         ValueError: If you try and upload an in-memory DataFrame without providing a
@@ -74,8 +91,9 @@ def upload_raw(
     .. _Requests: https://docs.python-requests.org/en/latest/
     .. _user-agent: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent
     .. _Custom Headers: https://docs.python-requests.org/en/latest/user/quickstart/#custom-headers
+    .. _S3 format: https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-bucket-intro.html#accessing-a-bucket-using-S3-format
     """  # noqa: B950, D412, DAR402
-    pass
+    return ""
 
 
 @upload_raw.register
@@ -85,27 +103,29 @@ def _(
     year: str,
     bucket_name: str = "s3-ranch-029",
     acl: str = "bucket-owner-full-control",
-    key: Optional[str] = None,
+    key_name: Optional[str] = None,
     filename: Optional[str] = None,
     headers: Optional[Dict[str, str]] = None,
-) -> None:
+) -> str:
 
     s3_resource = resource("s3")
     bucket = s3_resource.Bucket(bucket_name)
 
     csv_buffer = StringIO()
-    df_or_path.to_csv(csv_buffer)
+    df_or_path.to_csv(csv_buffer, index=False)
 
-    if filename is None and key is None:
+    if filename is None and key_name is None:
         raise ValueError("You must provide a filename or a full S3 key.")
 
-    _key = key if key else f"{year}_update/raw/{indicator_code}/{filename}"
+    _key = key_name if key_name else f"{year}_update/raw/{indicator_code}/{filename}"
 
     bucket.put_object(
         ACL=acl,
         Body=csv_buffer.getvalue(),
         Key=_key,
     )
+
+    return f"s3://{bucket_name}/{_key}"
 
 
 @upload_raw.register
@@ -115,17 +135,17 @@ def _(
     year: str,
     bucket_name: str = "s3-ranch-029",
     acl: str = "bucket-owner-full-control",
-    key: Optional[str] = None,
+    key_name: Optional[str] = None,
     filename: Optional[str] = None,
     headers: Optional[Dict[str, str]] = None,
-) -> None:
+) -> str:
 
     s3_resource = resource("s3")
     bucket = s3_resource.Bucket(bucket_name)
 
     _filename = filename if filename else basename(df_or_path)
 
-    _key = key if key else f"{year}_update/raw/{indicator_code}/{_filename}"
+    _key = key_name if key_name else f"{year}_update/raw/{indicator_code}/{_filename}"
 
     if df_or_path.startswith(("https://", "http://")):
 
@@ -144,14 +164,16 @@ def _(
 
         response.raise_for_status()
 
-        return bucket.put_object(
+        bucket.put_object(
             ACL=acl,
             Body=response.content,
             Key=_key,
         )
     else:
-        return bucket.upload_file(
+        bucket.upload_file(
             Filename=df_or_path,
             Key=_key,
             ExtraArgs={"ACL": acl},
         )
+
+    return f"s3://{bucket_name}/{_key}"
