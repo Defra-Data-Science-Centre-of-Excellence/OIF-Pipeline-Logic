@@ -53,8 +53,9 @@ def upload_raw(
             df,
             indicator_code="A1",
             year="2022",
+            filename="data.csv"
         )
-        # s3://s3-ranch-029/2022_update/raw/A1/data.xlsx
+        # s3://s3-ranch-029/2022_update/raw/A1/data.csv
 
     Args:
         df_or_path (Union[DataFrame, str]): An in-memory DataFrame or the path
